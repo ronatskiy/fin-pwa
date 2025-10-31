@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './App.css';
 import { Navigation } from './components/Navigation';
-import { Converter } from './components/Converter';
+import { Converter } from './components/modules/Converter';
 import { ExpenseTracker } from './components/modules/ExpenseTracker';
 import { BudgetPlanner } from './components/modules/BudgetPlanner';
 import { SavingsGoal } from './components/modules/SavingsGoal';
