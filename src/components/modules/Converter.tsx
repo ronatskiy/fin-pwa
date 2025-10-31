@@ -4,7 +4,7 @@
  */
 
 import { useState, useEffect } from 'react';
-import { InstallInfo } from './InstallInfo';
+import { InstallInfo } from '../InstallInfo';
 
 // Базові курси для резерву (fallback)
 const FALLBACK_RATES = {

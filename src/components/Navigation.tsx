@@ -9,10 +9,10 @@ interface NavigationProps {
 
 export function Navigation({ activeTab, onTabChange }: NavigationProps) {
   const tabs = [
-    { id: 'converter' as const, label: 'Конвертер', icon: '💱' },
     { id: 'expenses' as const, label: 'Витрати', icon: '💰' },
     { id: 'budget' as const, label: 'Бюджет', icon: '📊' },
     { id: 'goals' as const, label: 'Цілі', icon: '🎯' },
+    { id: 'converter' as const, label: 'Конвертер', icon: '💱' },
   ];
 
   return (

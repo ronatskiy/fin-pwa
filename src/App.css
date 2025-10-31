@@ -131,7 +131,8 @@
   padding: 2rem;
   min-height: 300px;
   overflow-y: auto;
-  max-height: calc(100vh - 300px);
+  max-height: calc(100vh - 200px);
+  flex: 1;
 }
 
 /* Module Containers */
@@ -614,6 +615,7 @@ td {
 
   .module-wrapper {
     padding: 1rem;
+    max-height: calc(100vh - 150px);
   }
 
   .result {

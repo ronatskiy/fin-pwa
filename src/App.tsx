@@ -9,7 +9,7 @@ import { SavingsGoal } from './components/modules/SavingsGoal';
 type Tab = 'converter' | 'expenses' | 'budget' | 'goals';
 
 function App() {
-  const [activeTab, setActiveTab] = useState<Tab>('converter');
+  const [activeTab, setActiveTab] = useState<Tab>('expenses');
 
   return (
     <div className="container">
@@ -21,10 +21,10 @@ function App() {
         <Navigation activeTab={activeTab} onTabChange={setActiveTab} />
 
         <div className="module-wrapper">
-          {activeTab === 'converter' && <Converter />}
           {activeTab === 'expenses' && <ExpenseTracker />}
           {activeTab === 'budget' && <BudgetPlanner />}
           {activeTab === 'goals' && <SavingsGoal />}
+          {activeTab === 'converter' && <Converter />}
         </div>
       </div>
     </div>
