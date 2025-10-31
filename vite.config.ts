@@ -13,6 +13,13 @@ export default defineConfig({
     VitePWA({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.ico', 'robots.txt', 'logo.svg'],
+      devOptions: {
+        enabled: true,
+        type: 'module'
+      },
+      workbox: {
+        globPatterns: ['**/*.{js,css,html,ico,png,svg,json}']
+      },
       manifest: {
         name: 'PWA Конвертер Валют',
         short_name: 'Конвертер',
