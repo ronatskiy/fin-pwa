@@ -12,7 +12,7 @@
 
 .card {
   width: 100%;
-  max-width: 28rem;
+  max-width: 32rem;
   background-color: white;
   padding: 0;
   border-radius: 0.75rem;
@@ -154,16 +154,6 @@
 }
 
 /* Status Messages */
-.sw-status {
-  padding: 0.75rem;
-  background-color: #dbeafe;
-  color: #0c4a6e;
-  border-left: 4px solid #0284c7;
-  border-radius: 0.375rem;
-  font-size: 0.875rem;
-  font-weight: 500;
-}
-
 .offline-warning {
   padding: 0.75rem;
   background-color: #fef3c7;
@@ -262,76 +252,17 @@
   margin: 0.5rem 0 0 0;
 }
 
-.pwa-info {
-  padding: 1rem;
-  background-color: #f0fdf4;
-  border-left: 4px solid #16a34a;
-  border-radius: 0.375rem;
-  margin-top: 1rem;
-}
-
-.info-text {
-  font-size: 0.875rem;
-  color: #15803d;
-  margin: 0;
-  line-height: 1.6;
-}
-
-/* Collapsible */
-.collapsible-info {
-  margin-top: 1rem;
-  border: 1px solid #e5e7eb;
-  border-radius: 0.375rem;
-  background-color: #fafafa;
-}
-
-.collapsible-header {
-  width: 100%;
-  padding: 1rem;
-  background-color: #f3f4f6;
-  border: none;
-  border-radius: 0.375rem;
-  cursor: pointer;
-  font-size: 1rem;
-  font-weight: 600;
-  color: #1f2937;
+/* Install Guide Styles */
+.install-guide {
   display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  transition: background-color 0.2s;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
-.collapsible-header:hover {
-  background-color: #e5e7eb;
-}
-
-.toggle-icon {
-  display: inline-flex;
-  align-items: center;
-  font-size: 0.875rem;
-  transition: transform 0.2s;
-}
-
-.header-text {
-  flex: 1;
-  text-align: left;
-}
-
-.collapsible-content {
-  padding: 1.5rem;
-  border-top: 1px solid #e5e7eb;
-  animation: slideDown 0.3s ease-out;
-}
-
-@keyframes slideDown {
-  from {
-    opacity: 0;
-    max-height: 0;
-  }
-  to {
-    opacity: 1;
-    max-height: 1000px;
-  }
+.install-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
 .install-case {

@@ -4,7 +4,6 @@
  */
 
 import { useState, useEffect } from 'react';
-import { InstallInfo } from '../InstallInfo';
 
 // Базові курси для резерву (fallback)
 const FALLBACK_RATES = {
@@ -24,7 +23,6 @@ export function Converter() {
   const [convertedAmount, setConvertedAmount] = useState<string | null>(null);
   const [rates, setRates] = useState(FALLBACK_RATES);
   const [isOffline, setIsOffline] = useState(false);
-  const [swStatus, setSwStatus] = useState<string>('Перевірка...');
   const currencies = Object.keys(rates);
 
   // Функція для завантаження, кешування та офлайн-логіки
@@ -62,34 +60,6 @@ export function Converter() {
     fetchAndCacheRates();
   }, []);
 
-  // PWA Service Worker Registration Check
-  useEffect(() => {
-    const checkSW = async () => {
-      if ('serviceWorker' in navigator) {
-        try {
-          const registrations = await navigator.serviceWorker.getRegistrations();
-          if (registrations.length > 0) {
-            setSwStatus('✅ Service Worker активний (PWA готова до встановлення)');
-            console.log("Service Worker активні:", registrations);
-          } else {
-            // Спробуємо зареєструвати
-            const reg = await navigator.serviceWorker.register('/sw.js', { scope: '/' });
-            setSwStatus('✅ Service Worker активний (PWA готова до встановлення)');
-            console.log("Service Worker зареєстрований:", reg);
-          }
-        } catch (err) {
-          setSwStatus('⚠️ Service Worker помилка: ' + (err as Error).message);
-          console.error("Service Worker помилка:", err);
-        }
-      } else {
-        setSwStatus('❌ Service Worker не підтримується браузером');
-      }
-    };
-
-    // Затримка для дозволу браузеру завантажити все
-    setTimeout(checkSW, 1000);
-  }, []);
-
   // Логіка конвертації
   useEffect(() => {
     if (rates && amount > 0) {
@@ -103,10 +73,6 @@ export function Converter() {
 
   return (
     <div className="module-container converter-module">
-      <div className="sw-status">
-        {swStatus}
-      </div>
-      
       {isOffline && (
         <div className="offline-warning">
           ⚠️ Офлайн-режим. Конвертація виконується на основі кешованих або резервних курсів.
@@ -159,8 +125,6 @@ export function Converter() {
           {amount} {fromCurrency} = {convertedAmount || '...'} {toCurrency}
         </p>
       </div>
-
-      <InstallInfo />
     </div>
   );
 }

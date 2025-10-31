@@ -1,26 +1,21 @@
-import { useState } from 'react';
-
 interface InstallInfoProps {
   className?: string;
 }
 
 export function InstallInfo({ className = '' }: InstallInfoProps) {
-  const [isExpanded, setIsExpanded] = useState(false);
-
   return (
-    <div className={`collapsible-info ${className}`}>
-      <button 
-        className="collapsible-header"
-        onClick={() => setIsExpanded(!isExpanded)}
-      >
-        <span className="toggle-icon">
-          {isExpanded ? '▼' : '▶'}
-        </span>
-        <span className="header-text">💡 Як встановити PWA</span>
-      </button>
-      
-      {isExpanded && (
-        <div className="collapsible-content">
+    <div className={`module-container install-guide ${className}`}>
+      <div className="install-content">
+          <div className="message info">
+            <h3 style={{ margin: '0 0 0.5rem 0', fontSize: '1rem' }}>💡 Що таке PWA?</h3>
+            <p style={{ margin: 0 }}>
+              <strong>Progressive Web App (PWA)</strong> — це веб-додаток, який можна встановити на ваш пристрій як звичайну програму. 
+              Він працює швидше, функціонує офлайн та не потребує завантаження з App Store або Google Play.
+            </p>
+          </div>
+
+          <h2>📥 Як встановити PWA?</h2>
+
           <div className="install-case">
             <h3>📱 Варіант 1: Через меню браузера (Chrome/Edge)</h3>
             <ol>
@@ -52,19 +47,7 @@ export function InstallInfo({ className = '' }: InstallInfoProps) {
               <li>Додаток буде встановлено як веб-клік на вашому домашньому екрані</li>
             </ol>
           </div>
-
-          <div className="install-benefits">
-            <h3>✨ Переваги встановлення PWA</h3>
-            <ul>
-              <li>⚡ Швидкий запуск без браузера</li>
-              <li>📵 Повна офлайн-функціональність</li>
-              <li>💾 Економія місця на диску</li>
-              <li>🔄 Автоматичні оновлення</li>
-              <li>🔔 Підтримка повідомлень (на деяких платформах)</li>
-            </ul>
-          </div>
         </div>
-      )}
     </div>
   );
 }

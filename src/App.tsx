@@ -5,8 +5,9 @@ import { Converter } from './components/modules/Converter';
 import { ExpenseTracker } from './components/modules/ExpenseTracker';
 import { BudgetPlanner } from './components/modules/BudgetPlanner';
 import { SavingsGoal } from './components/modules/SavingsGoal';
+import { InstallInfo } from './components/modules/InstallInfo';
 
-type Tab = 'converter' | 'expenses' | 'budget' | 'goals';
+type Tab = 'converter' | 'expenses' | 'budget' | 'goals' | 'help';
 
 function App() {
   const [activeTab, setActiveTab] = useState<Tab>('expenses');
@@ -25,6 +26,7 @@ function App() {
           {activeTab === 'budget' && <BudgetPlanner />}
           {activeTab === 'goals' && <SavingsGoal />}
           {activeTab === 'converter' && <Converter />}
+          {activeTab === 'help' && <InstallInfo />}
         </div>
       </div>
     </div>

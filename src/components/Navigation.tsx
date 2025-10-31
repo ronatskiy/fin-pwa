@@ -3,8 +3,8 @@
  */
 
 interface NavigationProps {
-  activeTab: 'converter' | 'expenses' | 'budget' | 'goals';
-  onTabChange: (tab: 'converter' | 'expenses' | 'budget' | 'goals') => void;
+  activeTab: 'converter' | 'expenses' | 'budget' | 'goals' | 'help';
+  onTabChange: (tab: 'converter' | 'expenses' | 'budget' | 'goals' | 'help') => void;
 }
 
 export function Navigation({ activeTab, onTabChange }: NavigationProps) {
@@ -13,6 +13,7 @@ export function Navigation({ activeTab, onTabChange }: NavigationProps) {
     { id: 'budget' as const, label: 'Бюджет', icon: '📊' },
     { id: 'goals' as const, label: 'Цілі', icon: '🎯' },
     { id: 'converter' as const, label: 'Конвертер', icon: '💱' },
+    { id: 'help' as const, label: 'Допомога', icon: '❓' },
   ];
 
   return (
