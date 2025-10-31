@@ -71,8 +71,45 @@ export function Converter() {
     }
   }, [amount, fromCurrency, toCurrency, rates]);
 
+  // Форматування дати
+  const formatDate = () => {
+    const today = new Date();
+    const options: Intl.DateTimeFormatOptions = { 
+      day: 'numeric', 
+      month: 'long', 
+      year: 'numeric' 
+    };
+    return today.toLocaleDateString('uk-UA', options);
+  };
+
   return (
     <div className="module-container converter-module">
+      {/* Курси валют та дата */}
+      <div className="currency-rates-card">
+        <div className="rates-header">
+          <span className="rates-date">📅 {formatDate()}</span>
+          {isOffline && <span className="rates-offline">🔄 Офлайн</span>}
+        </div>
+        <div className="rates-grid">
+          <div className="rate-item">
+            <span className="rate-label">USD</span>
+            <span className="rate-value">{(1 / rates.USD).toFixed(2)} ₴</span>
+          </div>
+          <div className="rate-item">
+            <span className="rate-label">EUR</span>
+            <span className="rate-value">{(1 / rates.EUR).toFixed(2)} ₴</span>
+          </div>
+          <div className="rate-item">
+            <span className="rate-label">PLN</span>
+            <span className="rate-value">{(1 / rates.PLN).toFixed(2)} ₴</span>
+          </div>
+          <div className="rate-item">
+            <span className="rate-label">GBP</span>
+            <span className="rate-value">{(1 / rates.GBP).toFixed(2)} ₴</span>
+          </div>
+        </div>
+      </div>
+
       {isOffline && (
         <div className="offline-warning">
           ⚠️ Офлайн-режим. Конвертація виконується на основі кешованих або резервних курсів.

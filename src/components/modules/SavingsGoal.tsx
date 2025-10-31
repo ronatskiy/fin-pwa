@@ -173,7 +173,7 @@ export function SavingsGoal() {
           </div>
 
           <div className="form-group">
-            <label className="form-label">Сума (грн)</label>
+            <label className="form-label">Сума</label>
             <input
               type="number"
               step="100"
